@@ -10,8 +10,10 @@ export class AppHeaderComponent {
   navBarElement: any;
   liElements: any;
   tmr: ReturnType<typeof setTimeout> | undefined;
+  isMobile: boolean = true;
 
   constructor(private elementRef:ElementRef){
+    // this.isMobile = true;
   }
 
   ngAfterViewInit(){

@@ -5,6 +5,8 @@ import { Component } from '@angular/core';
   templateUrl: './app-main.component.html',
   styleUrls: ['./app-main.component.scss']
 })
-export class AppMainComponent {
 
+
+export class AppMainComponent {
+  isMobile: boolean = true;
 }

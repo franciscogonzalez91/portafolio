@@ -6,11 +6,14 @@
 
 <nav>
     <ul>
-        <li>
-            <a href="#">Inicio</a>
+        <li *ngIf="isMobile">
+            <a routerLink="/">Inicio</a>
+            <!-- <ng-template #isPc>
+                <a *ngIf="isMobile else isPc" routerLink="/">Inicio</a>
+            </ng-template> -->
         </li>
         <li>
-            <a href="">Acerca</a>            
+            <a routerLink="/about">Acerca</a>            
         </li>
         <li>
             <a href="">Habilidades</a>            
