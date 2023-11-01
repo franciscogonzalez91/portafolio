@@ -1,5 +1,6 @@
 import { state, style, trigger, transition, animate } from '@angular/animations';
 import { Component, ElementRef, ChangeDetectorRef  } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { timer } from 'rxjs';
 
 @Component({
@@ -25,14 +26,20 @@ export class IndexComponent {
   startDivs: any;
   isNameTextVisible: boolean = false;
   isJobTitleTextVisible: boolean = false;
+  nav: any;
 
-  constructor(private elementref: ElementRef, private cdref: ChangeDetectorRef){}
+  constructor(private elementRef: ElementRef, private cdref: ChangeDetectorRef, private router: Router){}
 
   ngAfterViewInit(){
+    this.nav = this.elementRef.nativeElement.parentElement.parentElement.childNodes[0].querySelector('a');
+    if(this.nav.classList.contains('show')){
+      this.nav.classList.remove('show')
+    }  
     this.nameTextVisible(true);
     this.tmr = setTimeout(()=> this.nameTextVisible(false), 2000);
     this.tmr = setTimeout(()=> this.jobTitleTextVisible(true), 3000);
-    this.tmr = setTimeout(()=> this.jobTitleTextVisible(false), 5000);    
+    this.tmr = setTimeout(()=> this.jobTitleTextVisible(false), 5000);  
+    this.tmr = setTimeout(() => {this.router.navigate(['about'])}, 7000);
   }
 
   nameTextVisible(isVisible: boolean){
