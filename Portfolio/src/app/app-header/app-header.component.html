@@ -7,16 +7,16 @@
 <nav>
     <ul>
         <li *ngIf="isMobile">
-            <a routerLink="/">Inicio</a>
+            <a skipLocationChange routerLink="/">Inicio</a>
             <!-- <ng-template #isPc>
                 <a *ngIf="isMobile else isPc" routerLink="/">Inicio</a>
             </ng-template> -->
         </li>
         <li>
-            <a routerLink="/about">Acerca</a>            
+            <a skipLocationChange routerLink="/about">Acerca</a>            
         </li>
         <li>
-            <a href="">Habilidades</a>            
+            <a skipLocationChange routerLink="/skills">Habilidades</a>            
         </li>
         <li>
             <a href="">Experiencia</a>            

@@ -1,0 +1,104 @@
+
+@import '../../../styles.scss';
+
+$pageTextHeight: 4em;
+
+$rectanglesHeight: calc(100% - $pageTextHeight - $pageContainerHeight);
+$rectangleWidth: 120px;
+$rectangleSidesMargin: calc(20px / 6);
+$rectangleMargin: 1em $rectangleSidesMargin;
+
+
+.pageContainer{
+    .pageText{
+        padding: 0.5em;
+        width: 100%;
+        height: $pageTextHeight;
+        opacity: 0;
+        &.show-fade-in{
+            opacity: 1;
+        }
+    }
+    .pageTitle{
+        padding: 2em 0.5em;
+        opacity: 0;
+        &.transition-start{
+            opacity: 1;
+        }
+    }
+}
+
+.rectangles{
+    width: 100%;
+    height: $rectanglesHeight;
+    position: relative;
+    // margin-top: 2.5%;
+    .rectangleGroup{   
+        float: left;  
+        height: 300px;
+        width: 100%;
+        // padding-top: calc(40% - 22px);
+        position: absolute;
+        top: calc(50%);
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .rectangleGroupTitle{
+            text-align: center;
+        }   
+        .rectangleContainer{
+            // opacity: 0;
+            display: block;
+            height: 250px;
+            width: 380px;
+            max-height: 250px;
+            max-width: 380px;
+            // float: left;
+            margin: auto;
+            .rectangle{
+                height: 50px;
+                width: $rectangleWidth;
+                float: left;
+                border: 1.5px solid rgb(119, 119, 119);
+                color: whitesmoke;
+                font-weight: 500;
+                background-color: #164E57;
+                border-radius: 5px;
+                display: table;
+                margin: $rectangleMargin; 
+                p{
+                    display: table-cell;
+                    vertical-align: middle;
+                    text-align: center;
+                }
+            }
+            
+        }
+
+    }
+}
+
+.rectangleGroup{
+    &.one{
+        .rectangleGroupTitle{
+            opacity: 0;
+            &.show{
+                &.transition-left{
+                    opacity: 1;
+                }
+            } 
+               
+        }
+        .rectangleContainer{
+            opacity: 0;
+            &.bounce-start{
+                opacity: 1;            
+            }
+        } 
+    }    
+} 
+
+
+
+
+
+

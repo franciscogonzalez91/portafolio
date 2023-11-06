@@ -8,6 +8,7 @@ import { Component, ElementRef } from '@angular/core';
 export class AppHeaderComponent {
 
   navBarElement: any;
+  navElement: any;
   liElements: any;
   tmr: ReturnType<typeof setTimeout> | undefined;
   isMobile: boolean = true;
@@ -31,12 +32,12 @@ export class AppHeaderComponent {
 
   onClickBars(event: any){
     let navBarElement = this.elementRef.nativeElement.querySelectorAll('.navBar');
-    let navElement = this.elementRef.nativeElement.querySelector('nav');
+    this.navElement = this.elementRef.nativeElement.querySelector('nav');
     [].forEach.call(navBarElement, function(barElement: any){
       barElement.classList.toggle('clicked');
     });
 
-    navElement.classList.toggle('expandNav');
+    this.navElement.classList.toggle('expandNav');
     // if(nav.classList.contains('expandNav')){
     //   nav.
     // }
@@ -44,14 +45,17 @@ export class AppHeaderComponent {
 
   onTouchli(event: any){
     let actualLi = event.target.parentElement;
+    
     // if(!actualLi.classList.contains('touched')){
     //   let liElements = this.elementRef.nativeElement.querySelectorAll('li');
     //   [].forEach.call(liElements, function(li: any){
     //     li.classList.remove('touched')     
     //   });
     actualLi.classList.toggle('touched');
-    this.navBarElement.click();
+    this.tmr = setTimeout(()=> this.navElement.classList.toggle('hide'), 150);
     this.tmr = setTimeout(()=> actualLi.classList.toggle('touched'), 150);
+    this.tmr = setTimeout(()=> this.navElement.classList.toggle('hide'), 1000);
+    this.navBarElement.click();
     // }
   }
 }

@@ -1,12 +1,15 @@
 import { state, style, trigger, transition, animate } from '@angular/animations';
-import { Component, ElementRef, ChangeDetectorRef  } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Component, ElementRef, ChangeDetectorRef, inject, OnInit, Injectable  } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 import { timer } from 'rxjs';
+
 
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss'],
+  providers: [CookieService],
   animations: [
     trigger('fadeName', [
       state('hidden', style({ opacity: 0 })),
@@ -20,15 +23,24 @@ import { timer } from 'rxjs';
     ])
   ]
 })
-export class IndexComponent {
-  
+export class IndexComponent implements OnInit {  
   tmr: ReturnType<typeof setTimeout> | undefined;
   startDivs: any;
   isNameTextVisible: boolean = false;
   isJobTitleTextVisible: boolean = false;
-  nav: any;
+  nav: any;  
 
-  constructor(private elementRef: ElementRef, private cdref: ChangeDetectorRef, private router: Router){}
+  constructor(private elementRef: ElementRef, private  cdref: ChangeDetectorRef, private router: Router, private cookieService: CookieService){
+
+  }
+
+  ngOnInit(): void {
+    const cookieExists: boolean = this.cookieService.check('alreadyStartUp');
+    if(cookieExists)
+      this.router.navigateByUrl('about', {skipLocationChange: true});
+    else
+      this.cookieService.set('alreadyStartUp', 'y');
+  }
 
   ngAfterViewInit(){
     this.nav = this.elementRef.nativeElement.parentElement.parentElement.childNodes[0].querySelector('a');
@@ -39,7 +51,7 @@ export class IndexComponent {
     this.tmr = setTimeout(()=> this.nameTextVisible(false), 2000);
     this.tmr = setTimeout(()=> this.jobTitleTextVisible(true), 3000);
     this.tmr = setTimeout(()=> this.jobTitleTextVisible(false), 5000);  
-    this.tmr = setTimeout(() => {this.router.navigate(['about'])}, 7000);
+    this.tmr = setTimeout(() => {this.router.navigateByUrl('about', {skipLocationChange: true})}, 7000);
   }
 
   nameTextVisible(isVisible: boolean){

@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css2?family=Lato");
+@import 'animations.scss';
+
 $max-wh: 100%;
+$pageContainerHeight: 10%;
+
 
 *{
     font-family: "Lato";
@@ -9,6 +13,7 @@ $max-wh: 100%;
     box-sizing: border-box;
     -moz-box-sizing: border-box; /* Firefox */
     -webkit-box-sizing: border-box;
+    overflow: hidden;
 }
 
 body{
@@ -20,3 +25,58 @@ ul{
     list-style-type: none;
 }
 
+.pageContainer{
+    width: 100vw;
+    height: 100vh;
+    .pageTitle{
+        height: $pageContainerHeight;
+        width: 100%;
+    }
+}
+
+.arrow{      
+    position: absolute;
+    opacity: 0;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    border-radius: 50%;
+    top: calc(50vh);
+    background-color: #194780d3;
+    z-index: 1000;
+    overflow-y: hidden;
+
+    &.left-arrow, &.right-arrow{
+        font-size: 40px;
+        color: whitesmoke;
+    }
+    &.left-arrow{
+        left: 0;
+        transform: translatey(-50%);
+    }
+    &.right-arrow {
+        right: 0;
+    };
+
+    &.show-fade-in{
+        animation: show-fade-in 0.75s ease;   
+        opacity: 1; 
+    }
+}
+
+.hide{
+    opacity: 0;
+}
+
+.show{
+    opacity: 1;
+}
+
+/*Animations*/
+
+// .arrow{
+//     &.show{
+//         opacity: 1;
+//         transition: opacity 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+//     }
+// }
