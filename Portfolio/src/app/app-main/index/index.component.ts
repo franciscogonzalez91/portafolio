@@ -1,5 +1,5 @@
 import { state, style, trigger, transition, animate } from '@angular/animations';
-import { Component, ElementRef, ChangeDetectorRef, inject, OnInit, Injectable  } from '@angular/core';
+import { Component, ElementRef, ChangeDetectorRef, OnInit  } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { timer } from 'rxjs';
@@ -35,13 +35,12 @@ export class IndexComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const cookieExists: boolean = this.cookieService.check('alreadyStartUp');
+    const cookieExists: boolean = this.cookieService.check('ActualPage');
     if(cookieExists)
-      this.router.navigateByUrl('about', {skipLocationChange: true});
-    else
-      this.cookieService.set('alreadyStartUp', 'y');
+      this.cookieService.delete('ActualPage');
+    this.cookieService.set('ActualPage', '');
   }
-
+ 
   ngAfterViewInit(){
     this.nav = this.elementRef.nativeElement.parentElement.parentElement.childNodes[0].querySelector('a');
     if(this.nav.classList.contains('show')){

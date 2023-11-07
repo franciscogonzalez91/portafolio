@@ -1,22 +1,24 @@
-<div class="pageContainer">    
+<div class="pageContainer">  
+    <div class="arrow left-arrow">
+        <div class="arrow-content"><</div>
+    </div>
+    <div class="arrow right-arrow">
+        <div class="arrow-content">></div>
+    </div>  
     <div class="pageTitle">
         <h3>SKILLS</h3>
     </div>
     <div class="pageText">
-        <h4>Las diferentes skills con la que he tenido experiencia y he trabajado a lo largo de mi carrera son las siguientes</h4>
-
-        PD: Meter flecas en mismo componente que los rectangulos, hacer el rectangles como position relative y los arrows dentro como absolute, al igual que el rectangulo de informacion
-    </div>
-    <div class="rectangles">
-        <div class="arrow left-arrow" [innerHTML]="'<'">
-        </div>
-        <div class="arrow right-arrow" [innerHTML]="'>'">
-        </div>
-        <div class="rectangleGroup one">
-            <h3 class="rectangleGroupTitle">
-                Web Design
-            </h3>
-            <div class="rectangleContainer">
+        <p>Las diferentes skills con la que he tenido experiencia y he trabajado a lo largo de mi carrera son las siguientes</p>
+    </div>    
+</div>
+<div class="rectangles">        
+    <div class="rectangleGroup one active">
+        <h3 class="rectangleGroupTitle">
+            Web Design
+        </h3>
+        <div class="rectangleContainer">
+            <div class="rectangleRow">
                 <div class="rectangle">
                     <p>HTML</p>
                 </div>
@@ -26,6 +28,8 @@
                 <div class="rectangle">
                     <p>JavaScript</p>
                 </div>
+            </div>
+            <div class="rectangleRow">
                 <div class="rectangle">
                     <p>Angular</p>
                 </div>
@@ -35,6 +39,8 @@
                 <div class="rectangle">
                     <p>Typescript</p>
                 </div>
+            </div>
+            <div class="rectangleRow">
                 <div class="rectangle">
                     <p>JQuery</p>
                 </div>
@@ -44,13 +50,17 @@
                 <div class="rectangle">
                     <p>Responsive Design</p>
                 </div>
-            </div>            
-        </div>
-        <!-- <div class="rectangleGroup">
-            <h3 class="rectangleGroupTitle two">
-                Software Development
-            </h3>
-            <div class="rectangleContainer bounce-start">
+            </div>
+            
+            
+        </div>            
+    </div>
+    <div class="rectangleGroup two noActive r">
+        <h3 class="rectangleGroupTitle">
+            Software Development
+        </h3>
+        <div class="rectangleContainer">
+            <div class="rectangleRow">
                 <div class="rectangle">
                     <p>C#</p>
                 </div>
@@ -59,7 +69,9 @@
                 </div>
                 <div class="rectangle">
                     <p>ASP.Net Core</p>
-                </div>        
+                </div> 
+            </div>
+            <div class="rectangleRow">
                 <div class="rectangle">
                     <p>PHP</p>
                 </div>
@@ -69,14 +81,16 @@
                 <div class="rectangle">
                     <p>Python</p>
                 </div>
-            </div>            
-        </div>
-        
-        <div class="rectangleGroup">
-            <h3 class="rectangleGroupTitle three">
-                Mobile Software Development
-            </h3>
-            <div class="rectangleContainer bounce-start">
+            </div>                            
+        </div>            
+    </div>
+    
+    <div class="rectangleGroup  three noActive r">
+        <h3 class="rectangleGroupTitle">
+            Mobile Software Development
+        </h3>
+        <div class="rectangleContainer">
+            <div class="rectangleRow">
                 <div class="rectangle">
                     <p>Xamarin</p>
                 </div>
@@ -86,16 +100,21 @@
                 <div class="rectangle">
                     <p>Xcode</p>
                 </div>
+            </div>
+            <div class="rectangleRow">
                 <div class="rectangle">
                     <p>Swift </p>
                 </div>
             </div>
+                    
         </div>
-        <div class="rectangleGroup">
-            <h3 class="rectangleGroupTitle four">
-                Database Development
-            </h3>
-            <div class="rectangleContainer bounce-start">
+    </div>
+    <div class="rectangleGroup four noActive r">
+        <h3 class="rectangleGroupTitle">
+            Database Development
+        </h3>
+        <div class="rectangleContainer">
+            <div class="rectangleRow">
                 <div class="rectangle">
                     <p>SQL Server</p>
                 </div>
@@ -106,12 +125,14 @@
                     <p>FireBird DB</p>
                 </div>
             </div>            
-        </div>
-        <div class="rectangleGroup">
-            <h3 class="rectangleGroupTitle five">
-                Others
-            </h3>
-            <div class="rectangleContainer bounce-start">
+        </div>            
+    </div>
+    <div class="rectangleGroup five noActive r">
+        <h3 class="rectangleGroupTitle">
+            Others
+        </h3>
+        <div class="rectangleContainer">
+            <div class="rectangleRow">
                 <div class="rectangle">
                     <p>GIT</p>
                 </div>
@@ -122,7 +143,7 @@
                     <p>And More...</p>
                 </div>
             </div>            
-        </div>                 -->
+        </div>            
     </div>
 </div>
 

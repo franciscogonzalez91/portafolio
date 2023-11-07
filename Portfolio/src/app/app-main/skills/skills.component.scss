@@ -3,24 +3,24 @@
 
 $pageTextHeight: 4em;
 
-$rectanglesHeight: calc(100% - $pageTextHeight - $pageContainerHeight);
-$rectangleWidth: 120px;
+$rectanglesHeight: 100vh;
+$rectangleWidth: 100px;
 $rectangleSidesMargin: calc(20px / 6);
 $rectangleMargin: 1em $rectangleSidesMargin;
-
+// $rectangleGroupWidth: calc(calc($rectangleWidth + $rectangleSidesMargin + 2px) * 3);
+$rectangleGroupWidth: calc(calc($rectangleWidth * 3) + calc($rectangleSidesMargin * 6));
 
 .pageContainer{
     .pageText{
-        padding: 0.5em;
+        padding: 0 0.5em;
         width: 100%;
-        height: $pageTextHeight;
         opacity: 0;
         &.show-fade-in{
             opacity: 1;
         }
     }
     .pageTitle{
-        padding: 2em 0.5em;
+        padding: 1.5em 0.5em;
         opacity: 0;
         &.transition-start{
             opacity: 1;
@@ -31,12 +31,15 @@ $rectangleMargin: 1em $rectangleSidesMargin;
 .rectangles{
     width: 100%;
     height: $rectanglesHeight;
-    position: relative;
+    position: absolute;
+    top: 0;
     // margin-top: 2.5%;
     .rectangleGroup{   
         float: left;  
         height: 300px;
-        width: 100%;
+        max-height: 300px;
+        min-width: 350px;
+        // max-width: $rectangleGroupWidth;
         // padding-top: calc(40% - 22px);
         position: absolute;
         top: calc(50%);
@@ -49,11 +52,14 @@ $rectangleMargin: 1em $rectangleSidesMargin;
             // opacity: 0;
             display: block;
             height: 250px;
-            width: 380px;
-            max-height: 250px;
-            max-width: 380px;
+            width: 100%;
             // float: left;
             margin: auto;
+            .rectangleRow{
+                width: $rectangleGroupWidth;
+                display: block;
+                margin: auto;
+            }
             .rectangle{
                 height: 50px;
                 width: $rectangleWidth;
@@ -77,6 +83,8 @@ $rectangleMargin: 1em $rectangleSidesMargin;
     }
 }
 
+/*For Animations*/
+/*Hide and keep showing at startof line*/
 .rectangleGroup{
     &.one{
         .rectangleGroupTitle{
@@ -97,7 +105,26 @@ $rectangleMargin: 1em $rectangleSidesMargin;
     }    
 } 
 
+/*For change at click on arrow*/
+.rectangleGroup{
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    &.active{
+        transform: translate(-50%, -50%);
+    }
+    &.noActive{
+        opacity: 0;
+        &.l{
+            transform: translate(-150vw, -50%);
+        }
+        &.r{
+            transform: translate(100vw, -50%);
+        }
+    }
+}
 
+.arrow{
+    transform: translateY(-60%) !important;
+}
 
 
 

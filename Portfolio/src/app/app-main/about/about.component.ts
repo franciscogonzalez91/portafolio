@@ -1,10 +1,12 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { AppHeaderComponent } from 'src/app/app-header/app-header.component';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  styleUrls: ['./about.component.scss'],
+  providers: [CookieService]
 })
 export class AboutComponent {
 
@@ -16,7 +18,14 @@ export class AboutComponent {
   private txtIntroduction: any;
   private imgProfile: any;
 
-  constructor(private elementRef: ElementRef){}
+  constructor(private elementRef: ElementRef, private cookieService: CookieService){}
+
+  ngOnInit(): void {
+    const cookieExists: boolean = this.cookieService.check('ActualPage');
+    if(cookieExists)
+      this.cookieService.delete('ActualPage');
+    this.cookieService.set('ActualPage', 'about');
+  }
 
   ngAfterViewInit(){
     this.nav = this.elementRef.nativeElement.parentElement.parentElement.childNodes[0].querySelector('a');

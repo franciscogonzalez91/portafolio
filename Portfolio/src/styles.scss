@@ -37,17 +37,22 @@ ul{
 .arrow{      
     position: absolute;
     opacity: 0;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
     text-align: center;
     border-radius: 50%;
-    top: calc(50vh);
-    background-color: #194780d3;
+    top: calc(50%);
+    transform: translateY(-50%);
+    background-color: #1947809f;
     z-index: 1000;
     overflow-y: hidden;
-
+    display: table;
+    .arrow-content{
+        display: table-cell;
+        vertical-align: middle;
+    }
     &.left-arrow, &.right-arrow{
-        font-size: 40px;
+        font-size: 23px;
         color: whitesmoke;
     }
     &.left-arrow{
