@@ -1,0 +1,31 @@
+<a class="navBars">
+    <span class="navBar topBar"></span>
+    <span class="navBar"></span>
+    <span class="navBar bottomBar"></span>
+</a>
+
+<nav>
+    <ul>
+        <li *ngIf="isMobile">
+            <a skipLocationChange routerLink="/">Inicio</a>
+            <!-- <ng-template #isPc>
+                <a *ngIf="isMobile else isPc" routerLink="/">Inicio</a>
+            </ng-template> -->
+        </li>
+        <li>
+            <a skipLocationChange routerLink="/about">Acerca</a>            
+        </li>
+        <li>
+            <a skipLocationChange routerLink="/skills">Habilidades</a>            
+        </li>
+        <li>
+            <a href="">Experiencia</a>            
+        </li>
+        <li>
+            <a href="">Clientes</a>            
+        </li>
+        <li>
+            <a href="">Contacto</a>            
+        </li> 
+    </ul>
+</nav>

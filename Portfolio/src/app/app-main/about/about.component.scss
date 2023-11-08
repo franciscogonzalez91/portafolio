@@ -1,0 +1,61 @@
+@import '../../../styles.scss';
+
+
+#divPresentation{
+    height: 25vh;
+    width: $max-wh;
+    padding: 2em 1em;
+    h4{
+        margin: 5% 0;
+    }
+
+    /*Animation data*/
+    h1, h2, h4{
+        opacity: 0;
+        transition: all 1s ease-in-out;
+    }
+    h1, h2{
+        transform: translateX(-20vh);
+    }
+    h4{
+        transform: translateY(8vh);
+    }
+}
+
+#divProfile{
+    height: 30vh;
+    width: $max-wh;
+    padding: 1em;
+    text-align: justify;
+    p{
+        margin: 1em 0;
+    }
+    /*Animation data*/
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#divProfilePic{
+    height: 45vh;
+    width: $max-wh;
+    padding: 2.5em 0;
+    figure{
+        display: block;
+        margin: auto;
+        width: 60%;
+        img{
+            width: 100%;
+            height: 100%;        
+            border-radius: 50%;    
+        }
+    }
+    /*Animation data*/
+    opacity: 0;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/*Animations*/
+.show{
+        opacity: 1 !important;
+        transform: translate(0) !important;
+}

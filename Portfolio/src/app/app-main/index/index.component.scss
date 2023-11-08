@@ -1,0 +1,14 @@
+.divStart{
+    position: absolute;
+    top: calc(50% - 40px);
+    width: 100vw;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    h1{
+        text-align: center;        
+    }
+}
+
+.easeInOut{
+    opacity: 1;
+}

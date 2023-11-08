@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@angular/cli": "^16.2.8",
+    "ngx-cookie-service": "^16.1.0"
+  },
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}

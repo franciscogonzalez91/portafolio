@@ -1,0 +1,101 @@
+@import '../../styles.scss';
+
+$liMobileHeight: calc(100vh / 10);
+$firstliMargin: calc($liMobileHeight * 2);
+$liMargin: calc($liMobileHeight * 4 / 12);
+
+/*Navbar style*/
+nav{
+    width: $max-wh;
+    height: $max-wh;
+    max-height: 0;
+    position: absolute;
+    z-index: 1;
+    overflow: hidden;
+    // transition: all .50s cubic-bezier(.8,.31,.66,.49);
+    transition: max-height .40s ease-in-out;
+    // background-color: rgba($color: #ffffffab, $alpha: 0.7);
+    background-color: rgba($color: #164e57, $alpha: 0.75);
+    ul{
+        width: $max-wh;
+        height: $max-wh;
+        li{
+            width: $max-wh;
+            height: calc($liMobileHeight / 1.5);
+            margin: $liMargin 0 0 0;
+            display: table;
+            // float: right;
+            text-align: center;
+            transition: background .25s ease-in-out;
+            a{
+                width: 100vw;
+                display: table-cell;
+                vertical-align: middle;
+                color: whitesmoke;
+                text-decoration: none;
+                cursor: pointer;
+                font-size: 20px;
+                font-weight: 500;
+                -webkit-tap-highlight-color: transparent;
+            // font-style: italic;
+            }
+            &:nth-of-type(1){
+                margin: $firstliMargin 0 0 0;
+
+            }
+        }
+    }    
+    &.expandNav{
+        max-height: $max-wh;
+        // transition: all .25s ease-in-out;
+    }
+}
+
+/*Navbars style*/
+.navBars{
+    display: none;
+    position: absolute;
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    padding: 5px 10px;
+    right: 5px;
+    .navBar{
+        height: 3px;
+        width: 100%;
+        margin: 5px 0;
+        display: block;
+        background-color: gray;        
+        transition: all 0.15s ease-out;
+    }
+    &.show{
+        display: block;
+    }
+}
+
+/*Animations style*/
+.navBar{
+    &.clicked{
+        &:nth-of-type(1){
+            transform: rotate(-45deg);
+            transform-origin: top right;
+            width: 24px;
+            transition: all 0.15s ease-in-out;
+        }
+        &:nth-of-type(2){
+            width: 0;
+        }
+        &:nth-of-type(3){
+            transform: rotate(45deg);
+            transform-origin: bottom right;
+            width: 24px;
+            transition: all 0.15s ease-in-out;
+        }
+    }
+}
+
+li{
+    &.touched{
+        background-color: rgba($color: #ec0f0fab, $alpha: 0.7);
+    }
+}
