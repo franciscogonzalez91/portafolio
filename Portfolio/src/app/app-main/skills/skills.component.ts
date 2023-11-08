@@ -19,7 +19,8 @@ export class SkillsComponent {
   private rectangleContainer: any;
   private arrows: any;
   private rectangleGroups: any;
-  private activeRectangleGroup: any;
+  private activeClassName: string = 'active'
+  private noActiveClassName: string = 'noActive'
 
   constructor(private elementRef: ElementRef, private cookieService: CookieService){}
 
@@ -80,55 +81,67 @@ export class SkillsComponent {
     console.log('click');      
   }
 
-  changeRectangleOnFront(side: any){
-    let activeRectangleGroup: any = global.querySelectorFrom(this.rectangleGroups, '.active')[0];
-    let activeRectangleGroupNumber: string = activeRectangleGroup.classList[1];
-    let noActiveRectableGroups: any = global.querySelectorFrom(this.rectangleGroups, '.noActive');
-    activeRectangleGroup.classList.remove('active');
-    activeRectangleGroup.classList.add('noActive', 'l');
-    console.log(noActiveRectableGroups);
-    console.log(activeRectangleGroupNumber);
-    switch(activeRectangleGroupNumber){
+  changeRectangleOnFront(side: string){
+    let previousActiveRectangleGroup: any = global.querySelectorFrom(this.rectangleGroups, '.active')[0];
+    let previousActiveRectangleGroupNumber: string = previousActiveRectangleGroup.classList[1];
+    let nextActiveRectangleGroupNumber: number = this.getNextActiveRectangleGroupNumber(side, previousActiveRectangleGroupNumber);
+    let moveOppositeSideRectangleGroupNumber: number = this.getMoveOppositeSideRectangleGroupNumber(side, previousActiveRectangleGroupNumber);
+    let oppositeSide: string = side == 'l' ? 'r' : 'l'
+
+    this.deactiveRectangleGroup(side, previousActiveRectangleGroup);
+    this.activeRectangleGroup(side, oppositeSide, nextActiveRectangleGroupNumber);
+    this.moveOppositeSideRectangleGroup(side, oppositeSide, moveOppositeSideRectangleGroupNumber)
+  }
+
+  getNextActiveRectangleGroupNumber(side: string, previousActiveRectangleGroupNumber: string): number{
+    switch(previousActiveRectangleGroupNumber){
       case 'one':
-        noActiveRectableGroups[0].classList.add('active');
-        noActiveRectableGroups[0].classList.remove('noActive', 'r');
-        
-        break;
+          return side == 'l' ? 1 : 4;
       case 'two':
-        noActiveRectableGroups[0].classList.add('r');
-        noActiveRectableGroups[0].classList.remove('l');   
-        noActiveRectableGroups[1].classList.add('active');
-        noActiveRectableGroups[1].classList.remove('noActive', 'r');
-        break      
+        return side == 'l' ? 2 : 0;
       case 'three':
-        noActiveRectableGroups[1].classList.add('r');
-        noActiveRectableGroups[1].classList.remove('l');   
-        noActiveRectableGroups[2].classList.add('active');
-        noActiveRectableGroups[2].classList.remove('noActive', 'r');
-        break;   
+        return side == 'l' ? 3 : 1;
       case 'four':
-        noActiveRectableGroups[2].classList.add('r');
-        noActiveRectableGroups[2].classList.remove('l');
-        noActiveRectableGroups[3].classList.add('active');
-        noActiveRectableGroups[3].classList.remove('noActive', 'r');        
-        break;
+        return side == 'l' ? 4 : 2;
       case 'five':
-        noActiveRectableGroups[2].classList.add('r');
-        noActiveRectableGroups[2].classList.remove('l');
-        noActiveRectableGroups[0].classList.add('active');
-        noActiveRectableGroups[0].classList.remove('noActive', 'r');
-        break
+        return side == 'l' ? 0 : 3;
+      default:
+        return 0;
     }
+  }
 
+  getMoveOppositeSideRectangleGroupNumber(side: string, nextActiveRectangleGroupNumber: string): number{
+    switch(nextActiveRectangleGroupNumber){
+      case 'one':
+          return side == 'l' ? 3 : 2;
+      case 'two':
+        return side == 'l' ? 4 : 3;
+      case 'three':
+        return side == 'l' ? 0 : 4;
+      case 'four':
+        return side == 'l' ? 1 : 0;
+      case 'five':
+        return side == 'l' ? 2 : 1;
+      default:
+        return 0;
+    }
+  }
 
+  deactiveRectangleGroup(side: string, activeRectangleGroup: any): void{
+    activeRectangleGroup.classList.remove(this.activeClassName);
+    activeRectangleGroup.classList.add(this.noActiveClassName, side);
+  }
 
+  activeRectangleGroup(side: string, oppositeSide: string, nextRectableGroupNumber: number){
+    let nextRectableGroup = this.rectangleGroups[nextRectableGroupNumber];
+    nextRectableGroup.classList.remove(oppositeSide, this.noActiveClassName);
+    nextRectableGroup.classList.add(this.activeClassName);
+    
+  }
 
-
-
-    // switch(this.activeRectangleGroup){
-    //   case 'one':
-
-    //     break;      
-    // }
+  moveOppositeSideRectangleGroup(side: string, oppositeSide: string, changeSideRectableGroupNumber: any){
+    let changeSideRectableGroup = this.rectangleGroups[changeSideRectableGroupNumber];
+    changeSideRectableGroup.classList.remove(side);
+    changeSideRectableGroup.classList.add(oppositeSide);
   }
 }
