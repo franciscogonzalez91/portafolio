@@ -14,11 +14,24 @@ $pageContainerHeight: 10%;
     -moz-box-sizing: border-box; /* Firefox */
     -webkit-box-sizing: border-box;
     overflow: hidden;
+    color: rgb(155, 175, 202);
+}
+
+h1, h2, h3, h4{
+    color: whitesmoke;
+    ul{
+        li{
+            color: whitesmoke;
+        }
+    }
 }
 
 body{
     width: 100vw;
     height: 100vh;
+    // background-color: #164e57;
+    background-color: #041933;
+    
 }
 
 ul{
