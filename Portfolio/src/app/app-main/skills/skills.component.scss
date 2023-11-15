@@ -67,7 +67,10 @@ $rectangleGroupWidth: calc(calc($rectangleWidth * 3) + calc($rectangleSidesMargi
                 // border: 1.5px solid rgb(119, 119, 119);
                 color: whitesmoke;
                 font-weight: 500;
-                background-color: #164E57;
+                /*On Lightmode*/
+                // background-color: #164E57;
+                /*On Darkmode*/
+                background-color: #1f72819f;
                 border-radius: 5px;
                 display: table;
                 margin: $rectangleMargin; 
@@ -75,6 +78,7 @@ $rectangleGroupWidth: calc(calc($rectangleWidth * 3) + calc($rectangleSidesMargi
                     display: table-cell;
                     vertical-align: middle;
                     text-align: center;
+                    color: rgb(61, 235, 235);
                 }
             }
             

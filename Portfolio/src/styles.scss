@@ -14,7 +14,6 @@ $pageContainerHeight: 10%;
     -moz-box-sizing: border-box; /* Firefox */
     -webkit-box-sizing: border-box;
     overflow: hidden;
-    color: rgb(155, 175, 202);
 }
 
 h1, h2, h3, h4{
@@ -26,12 +25,22 @@ h1, h2, h3, h4{
     }
 }
 
+h5{
+    color: rgb(155, 175, 202);
+}
+
+p{
+    color: rgb(155, 175, 202);
+}
+
 body{
     width: 100vw;
     height: 100vh;
     // background-color: #164e57;
     background-color: #041933;
-    
+    &.lightMode{
+        background-color: white;
+    }
 }
 
 ul{
@@ -57,7 +66,7 @@ ul{
     top: calc(50%);
     transform: translateY(-50%);
     background-color: #1947809f;
-    z-index: 1000;
+    z-index: 500;
     overflow-y: hidden;
     display: table;
     .arrow-content{

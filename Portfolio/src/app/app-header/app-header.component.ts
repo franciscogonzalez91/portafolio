@@ -1,4 +1,5 @@
 import { Component, ElementRef } from '@angular/core';
+import { isMobile } from 'src/globals';
 
 @Component({
   selector: 'app-header',
@@ -24,9 +25,16 @@ export class AppHeaderComponent {
 
     /*Events for li's*/
     this.liElements = this.elementRef.nativeElement.querySelectorAll('li');
-    let eventFunction = this.onTouchli.bind(this);
+    let touchEventFunction = this.onTouchli.bind(this);
+    let mouseOverEventFunction = this.hoverEffect.bind(this);
+    let mouseOutEventFunction = this.hoverEffect.bind(this);
     [].forEach.call(this.liElements, function(li: any){
-      li.addEventListener('touchstart', eventFunction);      
+      if(isMobile){
+        li.addEventListener('touchstart', touchEventFunction);      
+      }else{
+        li.addEventListener('mouseover', mouseOverEventFunction);
+        li.addEventListener('mouseout', mouseOutEventFunction);
+      }
     });
   }
 
@@ -52,10 +60,18 @@ export class AppHeaderComponent {
     //     li.classList.remove('touched')     
     //   });
     actualLi.classList.toggle('touched');
+    actualLi.childNodes[0].classList.toggle('hover')
     this.tmr = setTimeout(()=> this.navElement.classList.toggle('hide'), 150);
     this.tmr = setTimeout(()=> actualLi.classList.toggle('touched'), 150);
     this.tmr = setTimeout(()=> this.navElement.classList.toggle('hide'), 1000);
+    this.tmr = setTimeout(()=> actualLi.childNodes[0].classList.toggle('hover'), 1000);
+    
     this.navBarElement.click();
     // }
+  }
+  
+  hoverEffect(event: any){
+    if(event.target.tagName == 'A')
+      event.target.classList.toggle('hover');
   }
 }

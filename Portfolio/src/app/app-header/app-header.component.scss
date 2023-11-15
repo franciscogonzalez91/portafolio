@@ -10,12 +10,13 @@ nav{
     height: $max-wh;
     max-height: 0;
     position: absolute;
-    z-index: 1;
+    z-index: 1000;
     overflow: hidden;
     // transition: all .50s cubic-bezier(.8,.31,.66,.49);
     transition: max-height .40s ease-in-out;
     // background-color: rgba($color: #ffffffab, $alpha: 0.7);
-    background-color: rgba($color: #164e57, $alpha: 0.75);
+    // background-color: rgba($color: #164e57, $alpha: 0.75);
+    background-color: #1f72819f;
     ul{
         width: $max-wh;
         height: $max-wh;
@@ -23,13 +24,10 @@ nav{
             width: $max-wh;
             height: calc($liMobileHeight / 1.5);
             margin: $liMargin 0 0 0;
-            display: table;
             // float: right;
             text-align: center;
             transition: background .25s ease-in-out;
-            a{
-                width: 100vw;
-                display: table-cell;
+            a{                
                 vertical-align: middle;
                 color: whitesmoke;
                 text-decoration: none;
@@ -55,7 +53,7 @@ nav{
 .navBars{
     display: none;
     position: absolute;
-    z-index: 2;
+    z-index: 2000;
     width: 50px;
     height: 50px;
     padding: 5px 10px;
@@ -65,7 +63,7 @@ nav{
         width: 100%;
         margin: 5px 0;
         display: block;
-        background-color: gray;        
+        background-color: #218899;    
         transition: all 0.15s ease-out;
     }
     &.show{
@@ -96,6 +94,45 @@ nav{
 
 li{
     &.touched{
-        background-color: rgba($color: #ec0f0fab, $alpha: 0.7);
+        // background-color: rgba($color: #ec0f0fab, $alpha: 0.7);
+        a{
+            color: rgb(61, 235, 235) !important;
+            ::after{
+                bottom: 0;
+                content: "";
+                display: block;
+                height: 2px;
+                left: 50%;
+                position: absolute;
+                background-color: rgb(61, 235, 235);
+                transition: width 0.3s ease 0s, left 0.3s ease 0s;
+                :hover{
+                    width: 100%;
+                }
+            }
+        }      
+
+    }
+    a{
+        position: relative;
+        &.hover{
+            &::after{
+                width: 100%;
+                left: 0;
+            }
+        }
+        &::after{
+            bottom: 0;
+            content: "";
+            display: block;
+            height: 2px;
+            left: 50%;
+            position: absolute;
+            background-color: rgb(61, 235, 235);
+            transition: width 0.3s ease 0s, left 0.3s ease 0s;         
+            width: 0;   
+            max-width: 200px;
+        }
     }
 }
+

@@ -1,6 +1,23 @@
-<div class="jobCard">
-    <div class="jobDates">{{jobs[0].startDate}} - {{jobs[0].finishDate}}</div>
-    <div class="jobTitle">{{jobs[0].title}}</div>
-    <div class="jobDescription">{{jobs[0].description}}</div>
-    <div class="jobSkills">{{jobs[0].description}}</div>
+<div class="jobCard show-fade-in" *ngFor="let job of jobs">
+    <div class="jobDates">
+        <h5>{{job.startDate}} - {{job.finishDate}}</h5>
+    </div>
+    <div class="jobTitle">
+        <h4>
+            {{job.title}}
+        </h4>
+    </div>
+    <div class="jobCompany">
+        <h5>{{job.company}}</h5>
+    </div>
+    <div class="jobDescription">
+        <p>
+            {{job.description}}
+        </p>
+    </div>
+    <div class="jobSkills">
+        <div class="jobSkill" *ngFor="let skill of job.skills">
+            {{skill}}
+        </div>
+    </div>
 </div>

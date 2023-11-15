@@ -1,5 +1,37 @@
 .jobCard{
-    border: 3px solid #164e57;
+    // border: 3px solid #164e57;
+    width: 95vw;
+    height: auto;
     border-radius: 2px;
-    width: calc(100vw - 5vw);
+    margin: 10px auto;
+    padding: 5vw;
+    background: rgb(31 114 129 / 18%);
+    // opacity: 0;
+    .jobDates{
+        margin: 5px 0;
+    }
+    .jobTitle{
+        margin: 10px 0;
+    }
+    .jobCompany{
+        h5{
+            font-size: 16px;
+        }
+        margin: 5px 0;
+    }
+    .jobDescription{
+        margin: 5px 0;
+    }
+    .jobSkills{
+        .jobSkill{
+            display: block;
+            float: left;
+            margin: 5px;
+            padding: 5px;
+            background-color: #1f72819f;
+            color: rgb(61, 235, 235);
+            border-radius: 5px;
+        }
+    }
 }
+

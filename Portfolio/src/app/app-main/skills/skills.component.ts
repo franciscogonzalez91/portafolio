@@ -72,7 +72,7 @@ export class SkillsComponent {
   //Events
   onArrowTouch(event: any){
     let arrow = event.target.parentElement;
-    let arrowTouched = arrow.classList[1] == 'left-arrow' ? 'l' : 'r';
+    let arrowTouched = arrow.classList[1] == 'left-arrow' ? 'r' : 'l';
     this.changeRectangleOnFront(arrowTouched)
     // console.log( arrowTouched == 'left-arrow' ? 'l' : 'r');
   }

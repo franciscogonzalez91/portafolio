@@ -13,6 +13,8 @@ import { AboutComponent } from './app-main/about/about.component';
 import { SkillsComponent } from './app-main/skills/skills.component';
 import { ExperienceComponent } from './app-main/experience/experience.component';
 import { JobCardComponent } from './app-main/experience/job-card/job-card.component';
+import { ClientsComponent } from './app-main/clients/clients.component';
+import { ClientCardComponent } from './app-main/clients/client-card/client-card.component';
 
 
 
@@ -27,6 +29,8 @@ import { JobCardComponent } from './app-main/experience/job-card/job-card.compon
     SkillsComponent,
     ExperienceComponent,
     JobCardComponent,
+    ClientsComponent,
+    ClientCardComponent,
   ],
   imports: [
     BrowserModule,

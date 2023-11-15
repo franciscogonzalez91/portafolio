@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { jobsJson } from '../../../../jsonDB/jobs'
-import {Job} from '../../../models/job.model';
+import { Job } from '../../../models/job.model';
 
 
 @Component({
