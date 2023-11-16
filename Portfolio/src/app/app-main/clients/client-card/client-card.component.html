@@ -1,5 +1,5 @@
-<div class="clientCard" *ngFor="let client of clients">
+<div class="clientCard fade-in" *ngFor="let client of clients">
     <figure>
-        <img src="{{actualURL}}{{client.imgURL}}" [alt]="client.imgURL">
+        <img class="show-fade-in" src="{{actualURL}}{{client.imgURL}}" [alt]="client.imgURL">
     </figure>
 </div>

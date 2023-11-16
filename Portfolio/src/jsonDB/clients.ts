@@ -9,6 +9,11 @@ export const clientsJson = {
             title: 'Supplier Support Tijuana SA de CV',
             imgURL: 'assets/imgs/clients/SST.png' ,      
             websiteURL: ''            
+        },
+        {
+            title: 'Elebadores RB SA de CV',
+            imgURL: 'assets/imgs/clients/ERB.png' ,      
+            websiteURL: ''  
         }
     ]
 }

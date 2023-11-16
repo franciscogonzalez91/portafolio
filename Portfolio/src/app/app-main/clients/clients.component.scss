@@ -1,0 +1,13 @@
+.pageContainer{
+    .pageTitle{
+        padding: 1.5em 0.5em;
+        opacity: 0;
+        &.transition-start{
+            opacity: 1;
+        }
+    }
+    .clientCards{
+        height: 90%;
+        overflow-y: auto;
+    }
+}

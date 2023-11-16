@@ -1,0 +1,94 @@
+.form-input{
+    position: relative;
+    // margin: 15px 0;
+    height: 55px;
+    .spanLabel{       
+        position: absolute; 
+        z-index: -1;
+        height: calc(1em + 3px) !important;
+        top: 25px;
+        left: 0;
+        color: rgba(53, 188, 212);
+        transition: all 0.2s ease-in-out;
+    }
+    input{
+        position: absolute;
+        bottom: 0;
+        background-color: rgba(31, 114, 129, 0.18);
+        color: rgb(61, 235, 235);
+        height: 30px;
+        width: 100%;
+        outline: none;
+        border: none;
+        // text-align: center;
+        &::placeholder{
+            color: rgba(53, 188, 212, 0.486);
+        }
+        &:hover, &:focus{
+            // background-color: rgba(31, 114, 129);
+            &+.spanLabel{
+                top: 5px;
+                font-size: 13px;
+                // z-index: 1000;
+            }
+            &~.spanBottomLine{
+                background-color: rgb(61, 235, 235);
+            }
+        }
+    }
+    .spanBottomLine{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: rgba(61, 235, 235, 0.5);
+        transition: background 0.2s ease-in-out;
+    }
+}
+
+.form-textarea{
+    position: relative;
+    height: 250px;
+    .spanLabel{       
+        position: absolute; 
+        z-index: -1;
+        height: calc(1em + 3px) !important;
+        top: 25px;
+        left: 0;
+        color: rgba(53, 188, 212);
+        transition: all 0.2s ease-in-out;
+    }
+    textarea{
+        position: absolute;
+        bottom: 0;
+        background-color: rgba(31, 114, 129, 0.18);
+        color: rgb(61, 235, 235);
+        height: 200px;
+        width: 100%;
+        outline: none;
+        border: none;
+        &::placeholder{
+            color: rgba(53, 188, 212, 0.486);
+        }
+        &:hover, &:focus{
+            // background-color: rgba(31, 114, 129);
+            &+.spanLabel{
+                font-size: 13px;
+                // z-index: 1000;
+            }
+            &~.spanBottomLine{
+                background-color: rgb(61, 235, 235);
+            }
+        }
+    }
+    .spanBottomLine{
+        position: absolute;
+        bottom: 2px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: rgba(61, 235, 235, 0.5);
+        transition: background 0.2s ease-in-out;
+    }
+}

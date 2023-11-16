@@ -1,0 +1,16 @@
+.clientCard{
+    width: 95vw;
+    height: auto;
+    border-radius: 2px;
+    margin: 10px auto;
+    padding: 5vw;
+    background-color: rgba(53, 188, 212, 0.486);
+    figure{
+        width: 100%;
+        img{
+            width: 100%;
+            min-height: 150px;
+            max-height: 150px;
+        }
+    }
+}

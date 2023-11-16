@@ -1,0 +1,14 @@
+<div class="form-input"  *ngIf="!isTextArea">
+    <!-- <input type="text" placeholder="{{lblText}}"> -->
+    <input type="text">
+    <span class="spanLabel">{{lblText}}</span>
+    <span class="spanBottomLine"></span>
+</div>
+<div class="form-textarea" *ngIf="isTextArea">
+    <!-- <input type="text" placeholder="{{lblText}}"> -->
+    <textarea></textarea>
+    <span class="spanLabel">{{lblText}}</span>
+    <span class="spanBottomLine"></span>
+</div>
+
+
